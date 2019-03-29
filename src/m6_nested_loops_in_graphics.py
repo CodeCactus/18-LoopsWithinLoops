@@ -89,7 +89,7 @@ def draw_L(window, circle, r, c):
             co.fill_color=circle.fill_color
             co.attach_to(window)
             circle.move_by(circle.radius*2,0)
-            window.render(.1)
+            window.render()
         circle.move_by(-(3*circle.radius*2),circle.radius*2)
     for k in range(3):
         for j in range(3+c):
@@ -97,7 +97,7 @@ def draw_L(window, circle, r, c):
             co.fill_color = circle.fill_color
             co.attach_to(window)
             circle.move_by(circle.radius * 2, 0)
-            window.render(.1)
+            window.render()
         circle.move_by(-((3+c) * circle.radius * 2), circle.radius * 2)
 
 
@@ -140,7 +140,13 @@ def draw_wall_on_right(rectangle, n, window):
     # TODO: 3. Implement and test this function.
     #     The testing code is already written for you (above).
     # ------------------------------------------------------------------
-
+    for k in range(n+1):
+        for j in range(k):
+            rec=rectangle.clone()
+            rec.move_by(-rectangle.get_width()*j,0)
+            rec.attach_to(window)
+            window.render()
+        rectangle.move_by(0,rectangle.get_height())
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
